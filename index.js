@@ -13,6 +13,11 @@ mongoose.connect(mongoUrl,{
     console.log ('Gagal Connect Ke Database')
 })
 
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+app.use('/user', require('./routes/user'))
+
 app.get('/test',(req,res)=>{
     const nama = 'anisa' 
     let prodi = ''
